@@ -1,0 +1,61 @@
+<!-- public/index.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Мини-конструктор сайтов</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Мини-конструктор сайтов</h1>
+
+    <section class="panel">
+      <label>Название сайта:
+        <input id="site-title" type="text" placeholder="Мой супер сайт" />
+      </label>
+
+      <label>Тема:
+        <select id="theme">
+          <option value="light">Светлая</option>
+          <option value="dark">Тёмная</option>
+        </select>
+      </label>
+
+      <div class="port-row">
+        <label>Порт (1–9999):
+          <input id="port" type="number" min="1" max="9999" placeholder="3000"/>
+        </label>
+        <small>Порт задаётся при запуске: <code>node server.js --port=3000</code></small>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Блоки</h2>
+      <div class="toolbar">
+        <button id="add-h1">+ Заголовок</button>
+        <button id="add-p">+ Текст</button>
+        <label class="btn">
+          + Картинка
+          <input id="add-img" type="file" accept="image/*" hidden />
+        </label>
+      </div>
+
+      <ul id="canvas" class="canvas" aria-live="polite"></ul>
+    </section>
+
+    <section class="panel actions">
+      <button id="generate" class="btn-primary">Сгенерировать сайт</button>
+      <a id="result-link" class="btn" href="#" target="_blank" style="display:none">Открыть сайт</a>
+    </section>
+
+    <p class="muted">
+      Подсказка: перетаскивай блоки мышкой (длинный клик) для изменения порядка.
+      Изображения хранятся локально в папке <code>uploads</code>, готовые сайты — в <code>sites</code>.
+    </p>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
